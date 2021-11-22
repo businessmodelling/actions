@@ -27,7 +27,7 @@ runs:
       if: ${{ inputs.archive-file-path != '' }}
       shell: pwsh
       run: |
-        Compress-Archive -Path ${{ inputs.project-path }}\bin\${{ inputs.msbuild-configuration }}\* -DestinationPath ${{ inputs.archive-file-path }}
+        Compress-Archive -Path ${{ inputs.project-path }}\bin\${{ inputs.msbuild-configuration }}\* -DestinationPath ${{ inputs.archive-file-path }} -Force
         git config user.name github-actions
         git config user.email github-actions@github.com
         git add ${{ inputs.archive-file-path }}
