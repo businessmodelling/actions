@@ -28,6 +28,8 @@ runs:
       shell: pwsh
       run: |
         Compress-Archive -Path ${{ inputs.project-path }}/bin/${{ inputs.msbuild-configuration }} -DestinationPath ${{ inputs.archive-file-path }}
+        git config user.name github-actions
+        git config user.email github-actions@github.com
         git add ${{ inputs.archive-file-path }}
         git commit -m "Build output"
         git push
